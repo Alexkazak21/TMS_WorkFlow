@@ -5,7 +5,12 @@
         static void Main(string[] args)
         {
             Console.WriteLine(Fibonachi());
-            Bank();
+            //Bank();
+            int[] mass = BubbleSort(new int[] { 1, 5, 8, 6, 7, 1, 5, 9, 5, 6, 3, 4 });
+            foreach (int item in mass) 
+            {
+                Console.WriteLine(item + " ");
+            }            
         }
 
         static string Fibonachi()
@@ -68,22 +73,23 @@
             Console.WriteLine($"\n{value}");
         }
 
-        static int[] BubbleSort(int[] mas)
+        static int[] BubbleSort(int[] array)
         {
-            int temp;
-            for (int i = 0; i < mas.Length; i++)
+            var len = array.Length;
+            for (var i = 1; i < len; i++)
             {
-                for (int j = i + 1; j < mas.Length; j++)
+                for (var j = 0; j < len - i; j++)
                 {
-                    if (mas[i] > mas[j])
+                    if (array[j] > array[j + 1])
                     {
-                        temp = mas[i];
-                        mas[i] = mas[j];
-                        mas[j] = temp;
+                        var temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
                     }
                 }
             }
-            return mas;
+
+            return array;
         }
     }
 }
