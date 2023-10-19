@@ -7,7 +7,7 @@ internal class Hirurg : Doctor, IHeal
     {
     }
 
-    public void Heal()
+    public override void Heal()
     {
         Console.WriteLine($"{Specialization} {Name} вырезал всё не нужное");
     }

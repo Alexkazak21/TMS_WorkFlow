@@ -12,20 +12,20 @@ internal class Heal_Plan
 
     public void Thretment()
     {
+        Doctor doctor;
         if (_id == 1) 
         {
-            Hirurg hirurg = new Hirurg("Иванов", "Хирург");
-            hirurg.Heal();
+            doctor = new Hirurg("Иванов", "Хирург");
         }
         else if (_id == 2) 
         {
-            Dentist dentist = new Dentist("Петров", "Стоматолог");
-            dentist.Heal();
+            doctor = new Dentist("Петров", "Стоматолог");
         }
         else
         {
-            Terapevt terapevt = new Terapevt("Сидоров", "Терапевт");
-            terapevt.Heal();
+            doctor = new Terapevt("Сидоров", "Терапевт");
         }
+
+        doctor.Heal();
     }
 }

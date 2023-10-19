@@ -1,6 +1,6 @@
 ﻿namespace Task2.Hospital;
 
-internal abstract class Doctor
+internal abstract class Doctor : IHeal
 {
     private readonly string _name;
     private readonly string _specialization;
@@ -13,4 +13,7 @@ internal abstract class Doctor
         _name = name;
         _specialization = specialization;
     }
+
+    public abstract void Heal();
+
 }

@@ -7,7 +7,7 @@ internal class Terapevt : Doctor, IHeal
     {
     }
 
-    public void Heal()
+    public override void Heal()
     {
         Console.WriteLine($"{Specialization} {Name} вылечил все болезни");
     }
