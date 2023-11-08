@@ -18,25 +18,56 @@
                         <td>
                             @using (Html.BeginForm("Delete", "Home", FormMethod.Post))
                             {
+                                <p>
+                                    @*<input type="hidden" name="id" value="@Model[i].Id" />*@
 
-                                <input type="hidden" name="id" value="@Model[i].Id" />
-
-                                <div>
-                                    <input type="submit" value="Удалить" />
-                                </div>
-                            }
-                        </td>
-                        <td>
-                            @using (Html.BeginForm("Change", "Home", FormMethod.Post))
-                            {
-
-                                <input type="hidden" name="id" value="@Model[i].Id" />
+                                    <button class="btn btn-primary" type="submit"  aria-expanded="false" name="id" value="@Model[i].Id">
+                                        Удалить
+                                    </button>                                  
+                                </p>
                                 
-                                <div>
-                                    <input type="submit" value="Изменить" />
-                                </div>
                             }
                         </td>
+                        @*<td>
+                            <p>
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTask1" aria-expanded="false" aria-controls="collapseExample">
+                                    Изменить
+                                </button>
+                            </p>
+                            <div class="collapse" id="collapseTask1">
+                                <div class="card card-body">
+                                    @using (Html.BeginForm("Change", "Home", FormMethod.Post))
+                                    {
+
+                                        <input type="hidden" name="id" value="@Model[i].Id" />
+
+                                        <div style="padding-top: 20px">
+                                            <label for="name">Название продукта:</label>
+                                            <input placeholder="@Model[i].Name" style="margin-left: 7%" type="text" id="name" name="name" />
+                                        </div>
+
+                                        <div>
+                                            <label for="amount">Колличество:</label>
+                                            <input placeholder="@Model[i].Amount" style="margin-left: 15%" type="number" id="amount" name="amount" />
+                                        </div>
+
+                                        <div>
+                                            <label for="price">Цена за единицу товара:</label>
+                                            <input placeholder="@Model[i].Price" style="margin-left: 1%" type="number" id="price" name="price" />
+                                        </div>
+
+                                        <div>
+                                            <label for="category">Категори товара:</label>
+                                            <input placeholder="@Model[i].Category" style="margin-left: 10.5%" type="text" id="category" name="category" />
+                                        </div>
+
+                                        <div>
+                                            <input type="submit" value="Сохранить" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>                            
+                        </td>*@
                     </tr>
                 </tbody>
             </table>
@@ -45,12 +76,14 @@
         </div>
     }  
 }
-
-<div class="container">
+@*
+    <div class="container">
     <details>
         <summary>Быстрое добавление товара</summary>
         <div>@Html.Partial("Add")</div>
     </details>
 </div>
+*@
+
 
 

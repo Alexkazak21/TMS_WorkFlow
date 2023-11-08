@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Diagnostics;
 using TmsMvc.Models;
 
@@ -64,6 +65,18 @@ namespace TmsMvc.Controllers
         [HttpPost]
         public IActionResult Change([FromForm] ProductModel model)
         { 
+            ProductModel product = new ProductModel 
+            {
+                Id = new Guid(),
+                Name = model.Name == null ? products.Where(x => x.Id == model.Id).First().Name : model.Name,
+                Price = model.Price == 0 ? products.Where(x => x.Id == model.Id).First().Price : model.Price,
+                Amount = model.Amount == 0 ? products.Where(x => x.Id == model.Id).First().Amount : model.Amount,
+                Category = model.Category == null ? products.Where(x => x.Id == model.Id).First().Category : model.Category,
+            };
+
+            products.Add(product);
+
+            //products.RemoveAll(x => x.Id == model.Id);
             return View("List", products);
         }
 
