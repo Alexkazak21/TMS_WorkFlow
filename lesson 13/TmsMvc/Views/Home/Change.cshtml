@@ -1,0 +1,43 @@
+﻿@using TmsMvc.Controllers
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<div class="container">
+    Доступные категории товаров:
+    @{
+        for (int i = 0; i < HomeController.Catgories.Count; i++)
+        {
+            <div> - @HomeController.Catgories[i]</div>
+        }
+
+    }
+
+
+
+    @* @using (Html.BeginForm("Change", "Home", FormMethod.Post))
+    {
+        <div style="padding-top: 20px">
+            <label for="name">Название продукта:</label>
+            <input style="margin-left: 7%" type="text" id="name" name="name" />
+        </div>
+
+        <div>
+            <label for="amount">Колличество:</label>
+            <input style="margin-left: 15%" type="number" id="amount" name="amount" />
+        </div>
+
+        <div>
+            <label for="price">Цена за единицу товара:</label>
+            <input style="margin-left: 1%" type="number" id="price" name="price" />
+        </div>
+
+        <div>
+            <label for="category">Категори товара:</label>
+            <input style="margin-left: 10.5%" type="text" id="category" name="category" />
+        </div>
+
+        <div>
+            <input type="submit" value="Изменить" />
+        </div>
+    }*@
+</div> 
