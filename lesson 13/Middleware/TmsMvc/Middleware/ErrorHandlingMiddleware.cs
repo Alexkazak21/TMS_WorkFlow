@@ -15,8 +15,8 @@ public class ErrorHandlingMiddleware
             await context.Response.WriteAsync("Access Denied");
         }
         else if (context.Response.StatusCode == 404)
-        {            
-            context.Response.Redirect("Home/Index");
+        {
+            context.Response.Redirect("Home/List"); 
         }
     }
 }
