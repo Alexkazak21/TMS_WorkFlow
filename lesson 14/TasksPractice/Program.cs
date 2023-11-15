@@ -7,6 +7,6 @@ internal class Program
     async static Task Main(string[] args)
     {
         ParallelTasks tasks = new ParallelTasks();
-        await tasks.ShowParallelism();
+        await tasks.ShowParallelismAsync();
     }
 }

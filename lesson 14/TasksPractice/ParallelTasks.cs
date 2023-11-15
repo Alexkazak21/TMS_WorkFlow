@@ -28,7 +28,7 @@ internal class ParallelTasks
     }
 
 
-    private async Task<int> SumOfTasks(int[] workArray,int parallelism)
+    private async Task<int> SumOfTasksAsync(int[] workArray,int parallelism)
     {
         var blockLength = (int)Math.Ceiling(workArray.Length / (decimal)parallelism);
 
@@ -53,13 +53,13 @@ internal class ParallelTasks
         return totalSum;
     }
 
-    public async Task ShowParallelism()
+    public async Task ShowParallelismAsync()
     {
         for (int i = 0; i < _amountOfParallelTasks.Length; i++) 
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            int res = await SumOfTasks(_workArray, _amountOfParallelTasks[i]);
+            int res = await SumOfTasksAsync(_workArray, _amountOfParallelTasks[i]);
             stopwatch.Stop();
             Console.WriteLine($"Parallelism = {_amountOfParallelTasks[i]},\nTime = {stopwatch.ElapsedMilliseconds}ms,\nSum = {res}\n\n");
         }
