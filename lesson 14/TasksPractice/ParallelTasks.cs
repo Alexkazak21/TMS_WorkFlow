@@ -44,6 +44,7 @@ internal class ParallelTasks
                 var blockOfArray = workArray[fromIndex..toIndex];
                 return Sum(blockOfArray);
             });
+            tasks[i].Start();
         }
 
         var sumArray = await Task.WhenAll(tasks);
@@ -54,14 +55,13 @@ internal class ParallelTasks
 
     public async Task ShowParallelism()
     {
-        Stopwatch stopwatch = new Stopwatch();
-
         for (int i = 0; i < _amountOfParallelTasks.Length; i++) 
         {
+            Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            int res = await Task.Run(() => SumOfTasks(_workArray, _amountOfParallelTasks[i]));
+            int res = await SumOfTasks(_workArray, _amountOfParallelTasks[i]);
             stopwatch.Stop();
-            Console.WriteLine($"Parallelism = {_amountOfParallelTasks[i]},\n Time = {stopwatch.ElapsedMilliseconds}ms, Sum = {res}\n\n");
+            Console.WriteLine($"Parallelism = {_amountOfParallelTasks[i]},\nTime = {stopwatch.ElapsedMilliseconds}ms,\nSum = {res}\n\n");
         }
     }
    
