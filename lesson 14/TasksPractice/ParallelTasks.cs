@@ -37,14 +37,14 @@ internal class ParallelTasks
         for (int i = 0; i < parallelism;  i++)
         {
             var startIndex = i;
-            tasks[i] = new Task<int>(() =>
+            tasks[i] = /*new Task<int>*/Task.Run(() =>
             {
                 var fromIndex = blockLength * startIndex;
                 var toIndex = Math.Min(blockLength * (startIndex + 1), workArray.Length);
                 var blockOfArray = workArray[fromIndex..toIndex];
                 return Sum(blockOfArray);
             });
-            tasks[i].Start();
+            //tasks[i].Start();
         }
 
         var sumArray = await Task.WhenAll(tasks);
