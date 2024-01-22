@@ -6,7 +6,7 @@ namespace CustomCollection;
 
 public class SummingCollection<TSource> : IEnumerable<TSource> where TSource : INumberBase<TSource> 
 {
-    private List<TSource> sum = default;
+    private List<TSource> sum = new();
 
     public void AddElement(TSource element)
     {
@@ -20,7 +20,7 @@ public class SummingCollection<TSource> : IEnumerable<TSource> where TSource : I
 
     public IEnumerator<TSource> GetEnumerator()
     {
-        TSource currentSum = default;
+        TSource currentSum = TSourse.Zero;
 
         foreach(TSource element in sum)
         {
