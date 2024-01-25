@@ -1,14 +1,9 @@
-using CustomExeption;
+using CustomExceptionLib;
 
 namespace CustomExceptionTests
 {
     public class Tests
-    {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
+    { 
         [TestCase("dfkgldfg", "sffre3fsg", "sffre3fsg")]
         [TestCase("354tbgfhd", "dfdsf45gdf", "dfdsf45gdf")]
         [TestCase("FDStrgfew445", "asfdvdssfwr35y5456y", "asfdvdssfwr35y5456y")]
